@@ -1,0 +1,174 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 102%;
+    outline: none;
+    z-index: 40;
+    position: absolute;
+}
+
+header {
+    z-index: 100;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+    height: 46px;
+    background-color: rgba(37, 18, 63, 0.5);
+}
+
+.title {
+    padding: 8px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    user-select: none;
+    cursor: default;
+}
+
+.title a {
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.header-menu {
+    position: fixed;
+    top: 5px;
+    right: 0;
+
+    margin: 0;
+    padding-right: 10px;
+
+}
+
+.header-menu-item {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header-menu-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.add_bar {
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+    position: absolute;
+    border-radius: 100%;
+    background-color: rgba(37, 18, 63, 0.5);
+    bottom: -100px;
+    right: -100px;
+    cursor: pointer;
+}
+
+.add_bar .icon {
+    font-size: 64px;
+    color: white;
+    user-select: none;
+    margin-top: 10px;
+    margin-left: 38px;
+}
+
+.hiddenBlock {
+    margin-left: -33%;
+    margin-top: 46px;
+    width: 33%;
+    height: 100%;
+    position: absolute;
+    z-index: 200;
+    background-color: rgba(37, 18, 63, 0.8);
+    transition: all 0.5s ease-in-out;
+}
+
+#new_bar_form.hiddenBlock.active {
+    margin-left: 0px;
+}
+
+.white {
+    color: white;
+    font-size: 16px;
+}
+
+#new_bar_form textarea {
+    width: 100%;
+}
+
+#bar_redactor_form textarea {
+    width: 100%;
+}
+
+#bar_info textarea {
+    width: 100%;
+}
+
+#bar_redactor_form select {
+    width: 100%;
+}
+
+#new_bar_form select {
+    width: 100%;
+}
+
+#bar_info.hiddenBlock.active {
+    margin-left: 0px;
+    overflow: auto;
+}
+
+#bar_redactor_form.hiddenBlock.active {
+    margin-left: 0px;
+}
+
+.bar_info_element {
+    padding: 20px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.bar_info_element_redactor {
+    background: rgba(255, 255, 255, 0.2);
+    margin-right: -10px;
+    margin-left: -10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment_element {
+    padding: 0;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.form-button {
+    right: 10px;
+    position: absolute;
+}
+
+::-webkit-scrollbar {
+    background-color: rgba(37, 18, 63, 0.5);
+}
+
+::-webkit-scrollbar:hover {
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+@media screen and  (max-width: 800px){
+    .header-menu-item{
+        display: block;
+        margin: 0;
+        margin-top: -2px;
+        font-size: 11px;
+    }
+}
