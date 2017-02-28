@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 25 2017 г., 14:17
+-- Время создания: Фев 28 2017 г., 19:02
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -32,17 +32,19 @@ CREATE TABLE IF NOT EXISTS `bar` (
   `description` text,
   `coord` varchar(60) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
-  `new_name` varchar(60) NOT NULL,
+  `new_name` varchar(40) NOT NULL,
   `new_description` text NOT NULL,
   `new_beers` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `bar`
 --
 
 INSERT INTO `bar` (`id`, `name`, `description`, `coord`, `is_active`, `new_name`, `new_description`, `new_beers`) VALUES
-(29, 'first_bar', 'first bar description', '49.991187559161034,36.23359680175782', 0, 'test', 'test description', 'a:1:{i:0;s:2:"12";}');
+(41, '''dasdas''', '1', '49.99333957060293,36.2276315689087', 0, '', '', ''),
+(42, 'dads', '123', '49.990828881224694,36.23153686523438', 1, '', '', ''),
+(43, 'sfas', 'asdasdasdas', '49.9915462344223,36.24114990234376', 1, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -54,15 +56,16 @@ CREATE TABLE IF NOT EXISTS `bar_has_beer` (
   `id` int(11) NOT NULL,
   `id_bar` int(11) NOT NULL,
   `id_beer` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `bar_has_beer`
 --
 
 INSERT INTO `bar_has_beer` (`id`, `id_bar`, `id_beer`) VALUES
-(28, 29, 12),
-(29, 29, 13);
+(3, 42, 39),
+(4, 42, 40),
+(8, 43, 42);
 
 -- --------------------------------------------------------
 
@@ -73,15 +76,19 @@ INSERT INTO `bar_has_beer` (`id`, `id_bar`, `id_beer`) VALUES
 CREATE TABLE IF NOT EXISTS `beer` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `beer`
 --
 
 INSERT INTO `beer` (`id`, `name`) VALUES
-(12, 'beer1'),
-(13, 'beer3');
+(37, 'b1'),
+(38, 'dasd'),
+(39, '37'),
+(40, 'qwe'),
+(41, 'c'),
+(42, 'dsad');
 
 -- --------------------------------------------------------
 
@@ -95,14 +102,14 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `id_bar` int(11) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `comment` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comment`
 --
 
 INSERT INTO `comment` (`id`, `email_user`, `id_bar`, `is_active`, `comment`) VALUES
-(2, 'manwithjeans@gmail.com', 29, 1, 'nice bar');
+(1, 'manwithjeans@gmail.com', 43, 1, 'asfsfas');
 
 -- --------------------------------------------------------
 
@@ -115,14 +122,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(60) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `password` varchar(60) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `is_active`, `password`) VALUES
-(8, 'manwithjeans@gmail.com', 1, '$2y$10$ylZXdM89U1cr0N6.F7UTPeF0S6TodmwjtWSP2ElWrT/kRF/1QanCe');
+(8, 'manwithjeans@gmail.com', 1, '$2y$10$ylZXdM89U1cr0N6.F7UTPeF0S6TodmwjtWSP2ElWrT/kRF/1QanCe'),
+(15, 'q@q.q', 1, '$2y$10$H.OL/.XnlEHayt6tHIEoa.2nEJzeDOT5nnDxE3SIqrQsf3Ev.QoQ2'),
+(16, 'valera@asdasd.aaa', 0, '$2y$10$oY85ewivhiLjObNuc6OI7OFZDFyqOzW.qmYRqwsttOl/1lPXvh0WC');
 
 --
 -- Индексы сохранённых таблиц
@@ -166,27 +175,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT для таблицы `bar_has_beer`
 --
 ALTER TABLE `bar_has_beer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблицы `beer`
 --
 ALTER TABLE `beer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT для таблицы `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
