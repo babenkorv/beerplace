@@ -10,7 +10,6 @@
         'js' => [
             'assets/vue.min.js',
             'js/login.js',
-            'js/validate_login_form.js',
         ],
     ]
 );
